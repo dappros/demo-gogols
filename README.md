@@ -47,10 +47,10 @@ You can use these demos as templates for your own **AI assistants**, **knowledge
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/dappros/rag_demos.git
-cd rag_demos
+git clone https://github.com/dappros/demo-gogols.git
+cd demo-gogols
 pip install -r requirements.txt
-````
+```
 
 Set your API keys (for example, OpenAI):
 
