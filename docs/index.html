@@ -85,11 +85,48 @@
             margin: 20px 0;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
         }
         .project-card:hover {
             border-color: rgba(6, 182, 212, 0.4);
             box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
             transform: translateY(-2px);
+        }
+        .project-avatar {
+            flex-shrink: 0;
+            width: 140px;
+            min-height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .project-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            background-image:
+                linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .project-content {
+            flex: 1;
         }
         .project-title {
             color: #f8fafc;
@@ -432,8 +469,8 @@
         <img src="corner-bottom-left.png" alt="" class="corner-ornament corner-bottom-left">
         <div class="hero-content">
             <div class="hero-label">Gogols.ai</div>
-            <h1>Meet your <span>gogol</span>.</h1>
-            <p class="hero-subtitle">Specialized AI agents — digital souls that learn your world and act on your behalf.</p>
+            <h1>Meet the <span>gogols</span>.</h1>
+            <p class="hero-subtitle">Digital souls, with purpose and agency.</p>
         </div>
     </section>
 
@@ -526,27 +563,42 @@
         <h2 class="section-title">Digital <span>Twins</span></h2>
         
         <div class="project-card">
-            <h3 class="project-title">Sigmund Freud</h3>
-            <p class="project-description">
-                AI agent demo based on Sigmund Freud's complete works collection. This digital twin allows you to explore the extensive writings and works of the father of psychoanalysis through an AI-powered conversational interface.
-            </p>
-            <a href="freud/" class="project-link">View Freud Demo</a>
+            <div class="project-avatar">
+                <img src="avatars/freud-gogol.png" alt="Sigmund Freud">
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Sigmund Freud</h3>
+                <p class="project-description">
+                    AI agent demo based on Sigmund Freud's complete works collection. This digital twin allows you to explore the extensive writings and works of the father of psychoanalysis through an AI-powered conversational interface.
+                </p>
+                <a href="freud/" class="project-link">View Freud Demo</a>
+            </div>
         </div>
 
         <div class="project-card">
-            <h3 class="project-title">Mahatma Gandhi</h3>
-            <p class="project-description">
-                AI agent demo based on Mahatma Gandhi's complete works collection. This digital twin provides access to the comprehensive writings and teachings of the great leader through an AI-powered knowledge base.
-            </p>
-            <a href="gandhi/" class="project-link">View Gandhi Demo</a>
+            <div class="project-avatar">
+                <img src="avatars/gandhi-gogol.png" alt="Mahatma Gandhi">
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Mahatma Gandhi</h3>
+                <p class="project-description">
+                    AI agent demo based on Mahatma Gandhi's complete works collection. This digital twin provides access to the comprehensive writings and teachings of the great leader through an AI-powered knowledge base.
+                </p>
+                <a href="gandhi/" class="project-link">View Gandhi Demo</a>
+            </div>
         </div>
 
         <div class="project-card">
-            <h3 class="project-title">Twin Zelensky</h3>
-            <p class="project-description">
-                AI agent demo based on Zelensky speeches dataset. This digital twin demonstrates how to build a conversational interface for exploring speech content with AI-powered search and retrieval capabilities.
-            </p>
-            <a href="twin-zelensky/" class="project-link">View Twin Zelensky Demo</a>
+            <div class="project-avatar">
+                <img src="avatars/zelensky-gogol.png" alt="Twin Zelensky">
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Twin Zelensky</h3>
+                <p class="project-description">
+                    AI agent demo based on Zelensky speeches dataset. This digital twin demonstrates how to build a conversational interface for exploring speech content with AI-powered search and retrieval capabilities.
+                </p>
+                <a href="twin-zelensky/" class="project-link">View Twin Zelensky Demo</a>
+            </div>
         </div>
     </div>
 
@@ -554,43 +606,68 @@
         <h2 class="section-title">Business <span>Gogols</span></h2>
 
         <div class="project-card">
-            <h3 class="project-title">Leadership Ignition</h3>
-            <p class="project-description">
-                AI agent demo based on Leadership Ignition's materials. This business gogol showcases leadership development session outlines and materials, allowing you to explore different session formats from half-day to 1.5-day intensive programs.
-            </p>
-            <a href="leadership-ignition/" class="project-link">View Leadership Ignition</a>
+            <div class="project-avatar">
+                <div class="project-avatar-placeholder">💼</div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Leadership Ignition</h3>
+                <p class="project-description">
+                    AI agent demo based on Leadership Ignition's materials. This business gogol showcases leadership development session outlines and materials, allowing you to explore different session formats from half-day to 1.5-day intensive programs.
+                </p>
+                <a href="leadership-ignition/" class="project-link">View Leadership Ignition</a>
+            </div>
         </div>
 
         <div class="project-card">
-            <h3 class="project-title">Shirley Parsons</h3>
-            <p class="project-description">
-                AI agent demo based on Shirley Parsons case study. This business gogol demonstrates a knowledge base for a global HSEQ, Sustainability & ESG consulting firm, showcasing expertise in Health & Safety, Quality, Sustainability and Business Improvement.
-            </p>
-            <a href="shirley-parsons/" class="project-link">View Shirley Parsons</a>
+            <div class="project-avatar">
+                <div class="project-avatar-placeholder">🏢</div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Shirley Parsons</h3>
+                <p class="project-description">
+                    AI agent demo based on Shirley Parsons case study. This business gogol demonstrates a knowledge base for a global HSEQ, Sustainability & ESG consulting firm, showcasing expertise in Health & Safety, Quality, Sustainability and Business Improvement.
+                </p>
+                <a href="shirley-parsons/" class="project-link">View Shirley Parsons</a>
+            </div>
         </div>
 
         <div class="project-card">
-            <h3 class="project-title">Turner & Townsend</h3>
-            <p class="project-description">
-                AI agent demo based on Turner & Townsend case study. This business gogol showcases a professional services company knowledge base with expertise in cost management, project management, and program management across real estate, infrastructure, and natural resources sectors.
-            </p>
-            <a href="turner-townsend/" class="project-link">View Turner & Townsend</a>
+            <div class="project-avatar">
+                <div class="project-avatar-placeholder">🏗️</div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Turner & Townsend</h3>
+                <p class="project-description">
+                    AI agent demo based on Turner & Townsend case study. This business gogol showcases a professional services company knowledge base with expertise in cost management, project management, and program management across real estate, infrastructure, and natural resources sectors.
+                </p>
+                <a href="turner-townsend/" class="project-link">View Turner & Townsend</a>
+            </div>
         </div>
 
         <div class="project-card">
-            <h3 class="project-title">PASHA Life</h3>
-            <p class="project-description">
-                AI agent demo based on PASHA Life case study. This business gogol demonstrates an insurance company knowledge base providing information about comprehensive insurance products and services.
-            </p>
-            <a href="pasha-life/" class="project-link">View PASHA Life</a>
+            <div class="project-avatar">
+                <div class="project-avatar-placeholder">🛡️</div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">PASHA Life</h3>
+                <p class="project-description">
+                    AI agent demo based on PASHA Life case study. This business gogol demonstrates an insurance company knowledge base providing information about comprehensive insurance products and services.
+                </p>
+                <a href="pasha-life/" class="project-link">View PASHA Life</a>
+            </div>
         </div>
 
         <div class="project-card">
-            <h3 class="project-title">Preshent</h3>
-            <p class="project-description">
-                AI agent demo based on Preshent case study. This business gogol showcases a knowledge base for an intelligent, compliance-driven OS for a sustainable ecosystem, covering AI, blockchain, and digital assets across energy, agriculture, finance, health, and government services.
-            </p>
-            <a href="preshent/" class="project-link">View Preshent</a>
+            <div class="project-avatar">
+                <div class="project-avatar-placeholder">🌱</div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Preshent</h3>
+                <p class="project-description">
+                    AI agent demo based on Preshent case study. This business gogol showcases a knowledge base for an intelligent, compliance-driven OS for a sustainable ecosystem, covering AI, blockchain, and digital assets across energy, agriculture, finance, health, and government services.
+                </p>
+                <a href="preshent/" class="project-link">View Preshent</a>
+            </div>
         </div>
     </div>
 
