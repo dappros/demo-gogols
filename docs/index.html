@@ -664,43 +664,38 @@
             function updateAvatar(animate = true) {
                 const person = peopleGogols[personIdx];
                 
-                if (animate && tileContent) {
-                    // Add animation class
-                    tileContent.classList.add('tile-content-rotating');
+                // Update all content simultaneously first
+                if (avatarImg) {
+                    avatarImg.src = person.image;
+                    avatarImg.alt = person.title;
+                }
+                if (avatarTitle) {
+                    avatarTitle.textContent = person.title;
+                    avatarTitle.href = person.link;
+                }
+                if (avatarSubtitle) {
+                    avatarSubtitle.textContent = person.subtitle;
+                }
+                if (avatarDescription) {
+                    avatarDescription.textContent = person.description;
+                }
+                if (openDemoBtn) {
+                    openDemoBtn.href = person.link;
                 }
                 
-                // Update content
-                const updateContent = () => {
-                    if (avatarImg) {
-                        avatarImg.src = person.image;
-                        avatarImg.alt = person.title;
-                    }
-                    if (avatarTitle) {
-                        avatarTitle.textContent = person.title;
-                        avatarTitle.href = person.link;
-                    }
-                    if (avatarSubtitle) {
-                        avatarSubtitle.textContent = person.subtitle;
-                    }
-                    if (avatarDescription) {
-                        avatarDescription.textContent = person.description;
-                    }
-                    if (openDemoBtn) {
-                        openDemoBtn.href = person.link;
-                    }
-                    
-                    // Remove animation class after transition
-                    if (animate && tileContent) {
+                // Trigger animation after content is updated
+                if (animate && tileContent) {
+                    // Force reflow to ensure animation triggers
+                    void tileContent.offsetWidth;
+                    tileContent.classList.remove('tile-content-rotating');
+                    // Add animation class in next frame
+                    requestAnimationFrame(() => {
+                        tileContent.classList.add('tile-content-rotating');
+                        // Remove animation class after transition
                         setTimeout(() => {
                             tileContent.classList.remove('tile-content-rotating');
                         }, 400);
-                    }
-                };
-
-                if (animate) {
-                    setTimeout(updateContent, 200);
-                } else {
-                    updateContent();
+                    });
                 }
             }
 
@@ -766,26 +761,24 @@
             function updateBusiness(animate = true) {
                 const business = businessGogols[businessIdx];
                 
-                if (animate && businessContent) {
-                    businessContent.classList.add('tile-content-rotating');
-                }
+                // Update all content simultaneously first
+                if (businessTitle) businessTitle.textContent = business.title;
+                if (businessSubtitle) businessSubtitle.textContent = business.subtitle;
+                if (businessDescription) businessDescription.textContent = business.description;
                 
-                const updateContent = () => {
-                    if (businessTitle) businessTitle.textContent = business.title;
-                    if (businessSubtitle) businessSubtitle.textContent = business.subtitle;
-                    if (businessDescription) businessDescription.textContent = business.description;
-                    
-                    if (animate && businessContent) {
+                // Trigger animation after content is updated
+                if (animate && businessContent) {
+                    // Force reflow to ensure animation triggers
+                    void businessContent.offsetWidth;
+                    businessContent.classList.remove('tile-content-rotating');
+                    // Add animation class in next frame
+                    requestAnimationFrame(() => {
+                        businessContent.classList.add('tile-content-rotating');
+                        // Remove animation class after transition
                         setTimeout(() => {
                             businessContent.classList.remove('tile-content-rotating');
                         }, 400);
-                    }
-                };
-
-                if (animate) {
-                    setTimeout(updateContent, 200);
-                } else {
-                    updateContent();
+                    });
                 }
             }
 
@@ -846,26 +839,24 @@
             function updateGames(animate = true) {
                 const fun = funGogols[funIdx];
                 
-                if (animate && gamesContent) {
-                    gamesContent.classList.add('tile-content-rotating');
-                }
+                // Update all content simultaneously first
+                if (gamesTitle) gamesTitle.textContent = fun.title;
+                if (gamesSubtitle) gamesSubtitle.textContent = fun.subtitle;
+                if (gamesDescription) gamesDescription.textContent = fun.description;
                 
-                const updateContent = () => {
-                    if (gamesTitle) gamesTitle.textContent = fun.title;
-                    if (gamesSubtitle) gamesSubtitle.textContent = fun.subtitle;
-                    if (gamesDescription) gamesDescription.textContent = fun.description;
-                    
-                    if (animate && gamesContent) {
+                // Trigger animation after content is updated
+                if (animate && gamesContent) {
+                    // Force reflow to ensure animation triggers
+                    void gamesContent.offsetWidth;
+                    gamesContent.classList.remove('tile-content-rotating');
+                    // Add animation class in next frame
+                    requestAnimationFrame(() => {
+                        gamesContent.classList.add('tile-content-rotating');
+                        // Remove animation class after transition
                         setTimeout(() => {
                             gamesContent.classList.remove('tile-content-rotating');
                         }, 400);
-                    }
-                };
-
-                if (animate) {
-                    setTimeout(updateContent, 200);
-                } else {
-                    updateContent();
+                    });
                 }
             }
 
