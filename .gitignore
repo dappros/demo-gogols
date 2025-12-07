@@ -1,5 +1,6 @@
 # Exclude work folder
 _wrk/
+landing/_wrk/
 
 # macOS
 .DS_Store
