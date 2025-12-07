@@ -302,7 +302,7 @@
             position: relative;
             z-index: 1;
         }
-        .tile-image.rotating img {
+        .tile-content-rotating {
             animation: cyber-swap 400ms ease-out;
         }
         @keyframes cyber-swap {
@@ -324,6 +324,56 @@
                 filter: drop-shadow(0 0 0 rgba(0,0,0,0));
             }
         }
+        .tile-controls {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .cycle-controls {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+        .cycle-button {
+            padding: 4px 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            background: transparent;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.875rem;
+        }
+        .cycle-button:hover {
+            background: rgba(17, 24, 39, 0.6);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .cycle-label {
+            margin-left: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+        .open-demo-button {
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            background: transparent;
+            color: #f8fafc;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .open-demo-button:hover {
+            background: rgba(17, 24, 39, 0.6);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #06b6d4;
+        }
         /* Browse demos section */
         .browse-section {
             max-width: 1200px;
@@ -343,6 +393,13 @@
         .tile-title {
             font-weight: 600;
             margin-bottom: 4px;
+            color: #f8fafc;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+        .tile-title:hover {
+            color: #06b6d4;
         }
         .tile-subtitle {
             font-size: 0.875rem;
@@ -390,36 +447,66 @@
                 <div class="experience-tile">
                     <div>
                         <div class="tile-label">Digital Twins</div>
-                        <div class="tile-image" id="digital-twins-image">
-                            <img src="avatars/freud-gogol.png" alt="Freud Gogol" id="avatar-img">
+                        <div class="tile-content-rotating" id="tile-content">
+                            <div class="tile-image" id="digital-twins-image">
+                                <img src="avatars/freud-gogol.png" alt="Freud Gogol" id="avatar-img">
+                            </div>
+                            <a href="freud/" class="tile-title" id="avatar-title">Freud Gogol</a>
+                            <p class="tile-subtitle" id="avatar-subtitle">Psychoanalytic twin</p>
+                            <p class="tile-description" id="avatar-description">Explore dreams, symbols, and subconscious motives.</p>
                         </div>
-                        <div class="tile-title" id="avatar-title">Freud Gogol</div>
-                        <p class="tile-subtitle" id="avatar-subtitle">Psychoanalytic twin</p>
-                        <p class="tile-description" id="avatar-description">Explore dreams, symbols, and subconscious motives.</p>
+                    </div>
+                    <div class="tile-controls">
+                        <div class="cycle-controls">
+                            <button class="cycle-button" id="cycle-prev">◀</button>
+                            <button class="cycle-button" id="cycle-next">▶</button>
+                            <span class="cycle-label">Cycle gogols</span>
+                        </div>
+                        <a href="freud/" class="open-demo-button" id="open-demo-btn">Open demo</a>
                     </div>
                 </div>
                 
                 <div class="experience-tile">
                     <div>
                         <div class="tile-label">Business Gogols</div>
-                        <div class="tile-image">
-                            <span style="position: relative; z-index: 1; color: #94a3b8;">Enterprise AI</span>
+                        <div class="tile-content-rotating" id="business-content">
+                            <div class="tile-image">
+                                <span style="position: relative; z-index: 1; color: #94a3b8;" id="business-image-text">Enterprise AI</span>
+                            </div>
+                            <div class="tile-title" id="business-title">SaaS Support Gogol</div>
+                            <p class="tile-subtitle" id="business-subtitle">24/7 customer assistant</p>
+                            <p class="tile-description" id="business-description">Trained on your docs, changelogs, and tickets.</p>
                         </div>
-                        <div class="tile-title">Support, Agency, Wiki</div>
-                        <p class="tile-subtitle">24/7 assistants and knowledge guardians</p>
-                        <p class="tile-description">Trained on your docs, changelogs, and internal knowledge bases.</p>
+                    </div>
+                    <div class="tile-controls">
+                        <div class="cycle-controls">
+                            <button class="cycle-button" id="business-cycle-prev">◀</button>
+                            <button class="cycle-button" id="business-cycle-next">▶</button>
+                            <span class="cycle-label">Cycle gogols</span>
+                        </div>
+                        <a href="#services" class="open-demo-button" id="business-open-demo-btn">Open demo</a>
                     </div>
                 </div>
                 
                 <div class="experience-tile">
                     <div>
                         <div class="tile-label">Games & Rooms</div>
-                        <div class="tile-image">
-                            <span style="position: relative; z-index: 1; color: #94a3b8;">Interactive Games</span>
+                        <div class="tile-content-rotating" id="games-content">
+                            <div class="tile-image">
+                                <span style="position: relative; z-index: 1; color: #94a3b8;" id="games-image-text">Interactive Games</span>
+                            </div>
+                            <div class="tile-title" id="games-title">Dilemma Gogol</div>
+                            <p class="tile-subtitle" id="games-subtitle">Prisoner's Dilemma host</p>
+                            <p class="tile-description" id="games-description">Join a room and play repeated Dilemma with other gogols.</p>
                         </div>
-                        <div class="tile-title">Dilemma, Storyteller, Quiz</div>
-                        <p class="tile-subtitle">Prisoner's Dilemma and game night hosts</p>
-                        <p class="tile-description">Join rooms and play repeated Dilemma with other gogols or enjoy folk horror tales.</p>
+                    </div>
+                    <div class="tile-controls">
+                        <div class="cycle-controls">
+                            <button class="cycle-button" id="games-cycle-prev">◀</button>
+                            <button class="cycle-button" id="games-cycle-next">▶</button>
+                            <span class="cycle-label">Cycle gogols</span>
+                        </div>
+                        <a href="#game-theory" class="open-demo-button" id="games-open-demo-btn">Open demo</a>
                     </div>
                 </div>
             </div>
@@ -463,7 +550,7 @@
         </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="services">
         <h2 class="section-title">Business <span>Gogols</span></h2>
 
         <div class="project-card">
@@ -507,7 +594,7 @@
         </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="game-theory">
         <h2 class="section-title">Game <span>Theory</span></h2>
         <div class="empty-section">
             <p>Coming soon...</p>
@@ -544,6 +631,7 @@
                     subtitle: "Psychoanalytic twin",
                     description: "Explore dreams, symbols, and subconscious motives.",
                     image: "avatars/freud-gogol.png",
+                    link: "freud/",
                 },
                 {
                     id: "gandhi",
@@ -551,6 +639,7 @@
                     subtitle: "Ethics & non-violence",
                     description: "Debate moral dilemmas and peaceful strategies.",
                     image: "avatars/gandhi-gogol.png",
+                    link: "gandhi/",
                 },
                 {
                     id: "zelensky",
@@ -558,6 +647,7 @@
                     subtitle: "Leadership in crisis",
                     description: "Discuss communication, courage, and wartime decisions.",
                     image: "avatars/zelensky-gogol.png",
+                    link: "twin-zelensky/",
                 },
             ];
 
@@ -566,34 +656,238 @@
             const avatarTitle = document.getElementById('avatar-title');
             const avatarSubtitle = document.getElementById('avatar-subtitle');
             const avatarDescription = document.getElementById('avatar-description');
-            const avatarContainer = document.getElementById('digital-twins-image');
+            const tileContent = document.getElementById('tile-content');
+            const openDemoBtn = document.getElementById('open-demo-btn');
+            const cyclePrevBtn = document.getElementById('cycle-prev');
+            const cycleNextBtn = document.getElementById('cycle-next');
 
-            function rotateAvatar() {
+            function updateAvatar(animate = true) {
                 const person = peopleGogols[personIdx];
                 
-                // Add animation class
-                avatarContainer.classList.add('rotating');
+                if (animate && tileContent) {
+                    // Add animation class
+                    tileContent.classList.add('tile-content-rotating');
+                }
                 
                 // Update content
-                setTimeout(() => {
-                    avatarImg.src = person.image;
-                    avatarImg.alt = person.title;
-                    avatarTitle.textContent = person.title;
-                    avatarSubtitle.textContent = person.subtitle;
-                    avatarDescription.textContent = person.description;
+                const updateContent = () => {
+                    if (avatarImg) {
+                        avatarImg.src = person.image;
+                        avatarImg.alt = person.title;
+                    }
+                    if (avatarTitle) {
+                        avatarTitle.textContent = person.title;
+                        avatarTitle.href = person.link;
+                    }
+                    if (avatarSubtitle) {
+                        avatarSubtitle.textContent = person.subtitle;
+                    }
+                    if (avatarDescription) {
+                        avatarDescription.textContent = person.description;
+                    }
+                    if (openDemoBtn) {
+                        openDemoBtn.href = person.link;
+                    }
                     
                     // Remove animation class after transition
-                    setTimeout(() => {
-                        avatarContainer.classList.remove('rotating');
-                    }, 400);
-                }, 200);
-                
-                personIdx = (personIdx + 1) % peopleGogols.length;
+                    if (animate && tileContent) {
+                        setTimeout(() => {
+                            tileContent.classList.remove('tile-content-rotating');
+                        }, 400);
+                    }
+                };
+
+                if (animate) {
+                    setTimeout(updateContent, 200);
+                } else {
+                    updateContent();
+                }
             }
 
-            // Rotate every 6 seconds
+            function rotateAvatar() {
+                personIdx = (personIdx + 1) % peopleGogols.length;
+                updateAvatar(true);
+            }
+
+            function rotatePrev() {
+                personIdx = (personIdx - 1 + peopleGogols.length) % peopleGogols.length;
+                updateAvatar(true);
+            }
+
+            // Initialize
             if (avatarImg && avatarTitle) {
+                updateAvatar(false);
+                
+                // Auto-rotate every 6 seconds
                 setInterval(rotateAvatar, 6000);
+                
+                // Add button listeners
+                if (cycleNextBtn) {
+                    cycleNextBtn.addEventListener('click', rotateAvatar);
+                }
+                if (cyclePrevBtn) {
+                    cyclePrevBtn.addEventListener('click', rotatePrev);
+                }
+            }
+        })();
+
+        // Rotate Business Gogols
+        (function() {
+            const businessGogols = [
+                {
+                    id: "saas",
+                    title: "SaaS Support Gogol",
+                    subtitle: "24/7 customer assistant",
+                    description: "Trained on your docs, changelogs, and tickets.",
+                },
+                {
+                    id: "agency",
+                    title: "Agency Gogol",
+                    subtitle: "Proposal & brief helper",
+                    description: "Drafts proposals, briefs, and client emails on command.",
+                },
+                {
+                    id: "internal",
+                    title: "Internal Wiki Gogol",
+                    subtitle: "Knowledge guardian",
+                    description: "Answers team questions from your internal wiki.",
+                },
+            ];
+
+            let businessIdx = 0;
+            const businessContent = document.getElementById('business-content');
+            const businessTitle = document.getElementById('business-title');
+            const businessSubtitle = document.getElementById('business-subtitle');
+            const businessDescription = document.getElementById('business-description');
+            const businessOpenDemoBtn = document.getElementById('business-open-demo-btn');
+            const businessCyclePrevBtn = document.getElementById('business-cycle-prev');
+            const businessCycleNextBtn = document.getElementById('business-cycle-next');
+
+            function updateBusiness(animate = true) {
+                const business = businessGogols[businessIdx];
+                
+                if (animate && businessContent) {
+                    businessContent.classList.add('tile-content-rotating');
+                }
+                
+                const updateContent = () => {
+                    if (businessTitle) businessTitle.textContent = business.title;
+                    if (businessSubtitle) businessSubtitle.textContent = business.subtitle;
+                    if (businessDescription) businessDescription.textContent = business.description;
+                    
+                    if (animate && businessContent) {
+                        setTimeout(() => {
+                            businessContent.classList.remove('tile-content-rotating');
+                        }, 400);
+                    }
+                };
+
+                if (animate) {
+                    setTimeout(updateContent, 200);
+                } else {
+                    updateContent();
+                }
+            }
+
+            function rotateBusiness() {
+                businessIdx = (businessIdx + 1) % businessGogols.length;
+                updateBusiness(true);
+            }
+
+            function rotateBusinessPrev() {
+                businessIdx = (businessIdx - 1 + businessGogols.length) % businessGogols.length;
+                updateBusiness(true);
+            }
+
+            if (businessTitle) {
+                updateBusiness(false);
+                setInterval(rotateBusiness, 7000);
+                if (businessCycleNextBtn) {
+                    businessCycleNextBtn.addEventListener('click', rotateBusiness);
+                }
+                if (businessCyclePrevBtn) {
+                    businessCyclePrevBtn.addEventListener('click', rotateBusinessPrev);
+                }
+            }
+        })();
+
+        // Rotate Games & Rooms
+        (function() {
+            const funGogols = [
+                {
+                    id: "dilemma",
+                    title: "Dilemma Gogol",
+                    subtitle: "Prisoner's Dilemma host",
+                    description: "Join a room and play repeated Dilemma with other gogols.",
+                },
+                {
+                    id: "storyteller",
+                    title: "Storyteller Gogol",
+                    subtitle: "Folk horror tales",
+                    description: "Spins eerie, Gogol-inspired stories in group chats.",
+                },
+                {
+                    id: "quiz",
+                    title: "Quizmaster Gogol",
+                    subtitle: "Game night host",
+                    description: "Runs trivia, hidden roles, and experimental games.",
+                },
+            ];
+
+            let funIdx = 0;
+            const gamesContent = document.getElementById('games-content');
+            const gamesTitle = document.getElementById('games-title');
+            const gamesSubtitle = document.getElementById('games-subtitle');
+            const gamesDescription = document.getElementById('games-description');
+            const gamesOpenDemoBtn = document.getElementById('games-open-demo-btn');
+            const gamesCyclePrevBtn = document.getElementById('games-cycle-prev');
+            const gamesCycleNextBtn = document.getElementById('games-cycle-next');
+
+            function updateGames(animate = true) {
+                const fun = funGogols[funIdx];
+                
+                if (animate && gamesContent) {
+                    gamesContent.classList.add('tile-content-rotating');
+                }
+                
+                const updateContent = () => {
+                    if (gamesTitle) gamesTitle.textContent = fun.title;
+                    if (gamesSubtitle) gamesSubtitle.textContent = fun.subtitle;
+                    if (gamesDescription) gamesDescription.textContent = fun.description;
+                    
+                    if (animate && gamesContent) {
+                        setTimeout(() => {
+                            gamesContent.classList.remove('tile-content-rotating');
+                        }, 400);
+                    }
+                };
+
+                if (animate) {
+                    setTimeout(updateContent, 200);
+                } else {
+                    updateContent();
+                }
+            }
+
+            function rotateGames() {
+                funIdx = (funIdx + 1) % funGogols.length;
+                updateGames(true);
+            }
+
+            function rotateGamesPrev() {
+                funIdx = (funIdx - 1 + funGogols.length) % funGogols.length;
+                updateGames(true);
+            }
+
+            if (gamesTitle) {
+                updateGames(false);
+                setInterval(rotateGames, 8000);
+                if (gamesCycleNextBtn) {
+                    gamesCycleNextBtn.addEventListener('click', rotateGames);
+                }
+                if (gamesCyclePrevBtn) {
+                    gamesCyclePrevBtn.addEventListener('click', rotateGamesPrev);
+                }
             }
         })();
     </script>
